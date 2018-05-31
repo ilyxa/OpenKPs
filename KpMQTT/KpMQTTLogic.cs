@@ -505,7 +505,8 @@ namespace Scada.Comm.Devices
 				MQTTPubCmd MqttPTCmd = new MQTTPubCmd () {
 					NumCmd = MqttPTCnf.GetAttrAsInt("NumCmd"),
 					QosLevels = (MqttQos)Convert.ToByte (MqttPTCnf.GetAttribute ("QosLevel")),
-					Retain = false,
+					// Retain = false,
+                    Retain = Convert.ToBoolean( MqttPTCnf.GetAttribute ("Retain")),
 					TopicName = MqttPTCnf.GetAttribute ("TopicName")
 				};
 				MQTTCmds.Add (MqttPTCmd);
